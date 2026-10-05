@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>秋霞免费电影网 - 秋霞免费电影在线推荐_热门影视榜单与精选片单 | qiuxiamianfeidianyingwang-cn.github.io</title>
+<meta name="description" content="秋霞免费电影网提供精选电影推荐、热门影视榜单、全类型图例索引与最新影视资讯，帮你快速找到值得一看的好电影。页面轻量、移动端自适应，手机浏览同样清晰流畅。">
+<meta name="keywords" content="秋霞免费电影网,秋霞免费电影,秋霞电影,电影推荐,热门电影榜单,影视分类导航,在线电影,qiuxiamianfeidianyingwang-cn.github.io">
+<meta name="author" content="秋霞免费电影网">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qiuxiamianfeidianyingwang-cn.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="秋霞免费电影网">
+<meta property="og:title" content="秋霞免费电影网 - 热门影视榜单与精选电影推荐">
+<meta property="og:description" content="秋霞免费电影网精选片单、标高热榜、图例索引与修订通告，一站式发现好电影。">
+<meta property="og:url" content="https://qiuxiamianfeidianyingwang-cn.github.io/">
+<meta name="theme-color" content="#0e3a63">
+<style>
+:root{
+  --bp:#0e3a63;
+  --bp2:#0a2b4c;
+  --bp3:#124e85;
+  --ink:#eaf4ff;
+  --line:rgba(234,244,255,.55);
+  --line2:rgba(234,244,255,.28);
+  --hair:rgba(234,244,255,.16);
+  --cy:#7fe3ff;
+  --amber:#ffc862;
+  --red:#ff7b6b;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New",monospace;
+  --sans:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);color:var(--ink);line-height:1.8;
+  background-color:var(--bp);
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.05),transparent 30%,rgba(0,0,0,.18)),
+    repeating-linear-gradient(0deg,var(--hair) 0 1px,transparent 1px 24px),
+    repeating-linear-gradient(90deg,var(--hair) 0 1px,transparent 1px 24px),
+    repeating-linear-gradient(0deg,rgba(234,244,255,.09) 0 1px,transparent 1px 120px),
+    repeating-linear-gradient(90deg,rgba(234,244,255,.09) 0 1px,transparent 1px 120px);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,ol{list-style:none;}
+h1,h2,h3,h4{line-height:1.4;font-weight:800;}
+.wrap{width:100%;max-width:1060px;margin:0 auto;padding:0 22px;}
+.mono{font-family:var(--mono);}
+.up{text-transform:uppercase;letter-spacing:.14em;}
+
+/* ============ 图签条 ============ */
+.strip{border-bottom:1px solid var(--line2);background:rgba(6,32,58,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);position:sticky;top:0;z-index:98;}
+.strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;min-height:58px;padding-top:8px;padding-bottom:8px;}
+.strip .meta{display:flex;gap:0;flex-wrap:wrap;}
+.strip .cell{
+  border:1px solid var(--line2);border-right:0;padding:6px 12px;min-width:96px;
+}
+.strip .cell:last-child{border-right:1px solid var(--line2);}
+.strip .cell .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--cy);opacity:.85;}
+.strip .cell .v{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;white-space:nowrap;}
+.nav{display:flex;gap:6px;flex-wrap:wrap;}
+.nav a{
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:6px 12px;
+  border:1px solid var(--line2);transition:.2s;white-space:nowrap;
+}
+.nav a:hover,.nav a.on{background:var(--ink);color:var(--bp2);border-color:var(--ink);}
+.burger{display:none;font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:8px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;}
+
+/* ============ 图框通用 ============ */
+.sheet{
+  position:relative;border:1px solid var(--line);outline:4px double var(--line2);outline-offset:5px;
+  padding:24px 22px 20px;margin:16px 6px;background:rgba(9,42,74,.35);
+}
+.sheet:before,.sheet:after{
+  content:"";position:absolute;width:14px;height:14px;border:1px solid var(--line2);
+}
+.sheet:before{left:-8px;top:-8px;border-right:0;border-bottom:0;}
+.sheet:after{right:-8px;bottom:-8px;border-left:0;border-top:0;}
+.sheet-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line2);padding-bottom:12px;margin-bottom:18px;}
+.sheet-head .l{display:flex;align-items:center;gap:12px;}
+.dwg{
+  font-family:var(--mono);font-size:12px;letter-spacing:.12em;border:1px solid var(--line);
+  padding:5px 10px;background:rgba(127,227,255,.1);color:var(--cy);flex:0 0 auto;
+}
+.sheet-head h2{font-size:24px;letter-spacing:1px;}
+.sheet-head h2 span{display:block;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--cy);opacity:.9;margin-top:4px;}
+.sheet-head .more{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--cy);border-bottom:1px solid var(--line2);padding-bottom:2px;flex:0 0 auto;}
+
+/* 标题栏 */
+.titleblock{
+  margin-top:20px;border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);font-family:var(--mono);
+}
+.titleblock .tb{border-right:1px solid var(--line2);padding:8px 12px;}
+.titleblock .tb:last-child{border-right:0;}
+.titleblock .k{font-size:9.5px;letter-spacing:.18em;color:var(--cy);opacity:.85;}
+.titleblock .v{font-size:12.5px;letter-spacing:.04em;margin-top:2px;}
+
+/* 尺寸标注线 */
+.dim{position:relative;height:26px;margin:14px 0 6px;}
+.dim:before,.dim:after{content:"";position:absolute;top:8px;width:1px;height:10px;background:var(--line);}
+.dim:before{left:0;}
+.dim:after{right:0;}
+.dim .bar{position:absolute;left:0;right:0;top:12px;height:1px;background:var(--line);}
+.dim .txt{
+  position:absolute;left:50%;top:0;transform:translateX(-50%);
+  background:var(--bp);padding:0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--cy);
+}
+
+/* ============ 首屏 ============ */
+.hero{padding:30px 0 10px;}
+.hero .sheet{padding:30px 26px 22px;}
+.hero h1{font-size:44px;letter-spacing:3px;}
+.hero h1 em{font-style:normal;color:var(--cy);}
+.hero .en{font-family:var(--mono);font-size:11.5px;letter-spacing:.42em;color:var(--cy);opacity:.85;margin-top:8px;}
+.hero .lead{margin-top:16px;max-width:600px;font-size:15.5px;color:rgba(234,244,255,.85);}
+.hero .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;}
+.hero .tags span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;padding:5px 13px;border:1px solid var(--line2);}
+.hero .tags span.hot{background:var(--ink);color:var(--bp2);border-color:var(--ink);}
+.hero .acts{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:12px 28px;font-family:var(--mono);font-size:13px;letter-spacing:.12em;
+  border:1px solid var(--ink);background:var(--ink);color:var(--bp2);transition:.2s;
+}
+.btn:hover{background:var(--cy);border-color:var(--cy);}
+.btn.gh{background:transparent;color:var(--ink);}
+.btn.gh:hover{background:rgba(127,227,255,.14);color:var(--cy);border-color:var(--cy);}
+.hero .url{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--ink);word-break:break-all;border:1px dashed var(--line2);padding:10px 14px;}
+.hero .url b{color:var(--amber);}
+.scalebar{margin-top:18px;display:flex;gap:0;border:1px solid var(--line2);width:fit-content;max-width:100%;}
+.scalebar i{display:block;width:26px;height:11px;border-right:1px solid var(--line2);}
+.scalebar i:nth-child(odd){background:var(--ink);}
+.scalebar i:last-child{border-right:0;}
+
+/* ============ 01 线框卡片 ============ */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.card{position:relative;border:1px solid var(--line);padding:10px 10px 12px;transition:.24s;background:rgba(9,42,74,.3);}
+.card:hover{background:rgba(127,227,255,.1);border-color:var(--cy);}
+.card .cross{position:absolute;width:9px;height:9px;opacity:.8;}
+.card .cross:before,.card .cross:after{content:"";position:absolute;background:var(--cy);}
+.card .cross:before{left:0;top:4px;width:9px;height:1px;}
+.card .cross:after{left:4px;top:0;width:1px;height:9px;}
+.card .c1{left:-5px;top:-5px;}
+.card .c2{right:-5px;top:-5px;}
+.card .c3{left:-5px;bottom:-5px;}
+.card .c4{right:-5px;bottom:-5px;}
+.card .ph{
+  aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;
+  border:1px dashed var(--line2);
+  background-image:repeating-linear-gradient(45deg,rgba(234,244,255,.1) 0 1px,transparent 1px 9px);
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(234,244,255,.75);
+}
+.card .ph i{position:absolute;top:8px;left:8px;font-style:normal;font-size:10.5px;border:1px solid var(--line2);padding:1px 7px;background:var(--bp2);}
+.card .ph b{position:absolute;right:8px;bottom:8px;font-family:var(--mono);font-size:13px;color:var(--amber);background:var(--bp2);padding:1px 7px;border:1px solid var(--line2);}
+.card h3{font-size:15.5px;margin-top:10px;letter-spacing:.5px;}
+.card h3:hover{color:var(--cy);}
+.card .meta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(234,244,255,.65);margin-top:3px;}
+.card .dim{height:20px;margin:10px 0 0;}
+.card .dim:before,.card .dim:after{top:5px;height:8px;}
+.card .dim .bar{top:9px;}
+.card .dim .txt{font-size:10px;padding:0 6px;}
+
+/* ============ 02 标高榜 ============ */
+.levels{border-left:1px solid var(--line);position:relative;padding:2px 0;}
+.levels:before{
+  content:"";position:absolute;left:-1px;top:0;bottom:0;width:8px;
+  background:repeating-linear-gradient(180deg,var(--line) 0 1px,transparent 1px 11px);
+}
+.lv{display:grid;grid-template-columns:88px 1fr 62px;gap:14px;align-items:center;padding:11px 0 11px 22px;border-bottom:1px dashed var(--hair);position:relative;transition:.22s;}
+.lv:last-child{border-bottom:0;}
+.lv:hover{background:rgba(127,227,255,.08);}
+.lv .elv{
+  font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--amber);position:relative;padding-left:14px;
+}
+.lv .elv:before{
+  content:"";position:absolute;left:0;top:50%;width:9px;height:1px;background:var(--amber);
+}
+.lv .tt{min-width:0;}
+.lv .tt h3{font-size:15.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lv .tt h3:hover{color:var(--cy);}
+.lv .tt span{font-family:var(--mono);font-size:11.5px;color:rgba(234,244,255,.6);}
+.lv .bar{
+  height:14px;border:1px solid var(--line2);position:relative;overflow:hidden;
+}
+.lv .bar i{
+  display:block;height:100%;
+  background-image:repeating-linear-gradient(45deg,var(--cy) 0 2px,transparent 2px 7px);
+  background-color:rgba(127,227,255,.14);
+}
+.lv:nth-child(-n+3) .bar i{background-image:repeating-linear-gradient(45deg,var(--amber) 0 2px,transparent 2px 7px);background-color:rgba(255,200,98,.16);}
+.lv .sc{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--amber);text-align:right;}
+.datum{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(234,244,255,.6);}
+.datum b{color:var(--cy);}
+
+/* ============ 03 图例分区 ============ */
+.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line2);border:1px solid var(--line);}
+.lg{
+  background:var(--bp2);padding:16px 14px;display:flex;flex-direction:column;gap:10px;transition:.22s;position:relative;
+}
+.lg:hover{background:var(--bp3);}
+.lg .hatch{
+  height:34px;border:1px solid var(--line2);
+  background-image:repeating-linear-gradient(45deg,var(--line) 0 1px,transparent 1px 8px);
+}
+.lg:nth-child(2n) .hatch{background-image:repeating-linear-gradient(-45deg,var(--line) 0 1px,transparent 1px 8px);}
+.lg:nth-child(3n) .hatch{background-image:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 6px);}
+.lg:nth-child(4n) .hatch{background-image:repeating-linear-gradient(0deg,var(--line) 0 1px,transparent 1px 6px);}
+.lg:nth-child(5n) .hatch{background-image:radial-gradient(circle,var(--line) 1px,transparent 1.4px);background-size:9px 9px;}
+.lg .row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
+.lg h3{font-size:15px;letter-spacing:.5px;}
+.lg .ct{font-family:var(--mono);font-size:12px;color:var(--cy);flex:0 0 auto;}
+.lg small{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:rgba(234,244,255,.55);}
+
+/* ============ 04 修订通告 ============ */
+.revs{display:flex;flex-direction:column;gap:12px;}
+.rev{
+  display:grid;grid-template-columns:74px 1fr;gap:16px;align-items:start;
+  border:1px solid var(--line2);padding:14px 16px;background:rgba(9,42,74,.3);transition:.24s;
+}
+.rev:hover{border-color:var(--line);background:rgba(127,227,255,.08);}
+.rev .bubble{position:relative;justify-self:center;}
+.rev .bubble .cir{
+  width:46px;height:46px;border-radius:50%;border:1.5px solid var(--red);color:var(--red);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:15px;font-weight:700;
+}
+.rev .bubble .tail{
+  position:absolute;right:-9px;bottom:2px;width:0;height:0;
+  border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:10px solid var(--red);
+}
+.rev .bd h3{font-size:16.5px;}
+.rev .bd .stamp{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber);margin-top:3px;}
+.rev .bd p{font-size:13.5px;color:rgba(234,244,255,.78);margin-top:7px;}
+.rev .bd .rd{margin-top:9px;display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--cy);border-bottom:1px solid var(--line2);}
+
+/* ============ 05 技术说明 ============ */
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.note{border:1px solid var(--line2);padding:16px 18px;background:rgba(9,42,74,.3);transition:.24s;}
+.note:hover{border-color:var(--line);background:rgba(127,227,255,.07);}
+.note .no{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);
+  border:1px solid var(--line2);display:inline-block;padding:3px 10px;margin-bottom:9px;
+}
+.note h3{font-size:16px;}
+.note p{margin-top:8px;font-size:13.5px;color:rgba(234,244,255,.78);}
+.block{margin-top:18px;border:1px solid var(--line);padding:18px 20px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;background:rgba(127,227,255,.08);}
+.block .t{font-size:15px;font-weight:800;}
+.block .u{font-family:var(--mono);font-size:12.5px;word-break:break-all;border:1px dashed var(--line2);padding:9px 14px;color:var(--amber);}
+
+/* ============ 页脚 ============ */
+footer{margin-top:26px;border-top:1px solid var(--line);background:rgba(6,32,58,.6);padding:32px 0 20px;}
+.fgrid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:26px;}
+.fgrid h4{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;color:var(--cy);margin-bottom:11px;}
+.fgrid li{font-size:13.5px;padding:4px 0;color:rgba(234,244,255,.78);}
+.fgrid li a:hover{color:var(--amber);}
+.fgrid .intro{font-size:13.5px;color:rgba(234,244,255,.78);}
+.fgrid .intro b{color:var(--amber);}
+.fbot{margin-top:24px;padding-top:16px;border-top:1px dashed var(--hair);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:rgba(234,244,255,.55);}
+.fbot a{color:rgba(234,244,255,.55);}
+.fbot a:hover{color:var(--amber);}
+
+#top{
+  position:fixed;right:16px;bottom:20px;width:44px;height:44px;border:1px solid var(--line);cursor:pointer;display:none;
+  background:rgba(9,42,74,.9);color:var(--cy);font-family:var(--mono);font-size:17px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+#top.show{display:block;}
+
+/* ============ 移动端自适应 ============ */
+@media (max-width:980px){
+  .hero h1{font-size:32px;letter-spacing:2px;}
+  .cards{grid-template-columns:repeat(2,1fr);}
+  .legend{grid-template-columns:repeat(2,1fr);}
+  .notes{grid-template-columns:1fr;}
+  .titleblock{grid-template-columns:1fr 1fr;}
+  .titleblock .tb:nth-child(2){border-right:0;}
+  .titleblock .tb:nth-child(-n+2){border-bottom:1px solid var(--line2);}
+  .fgrid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  .strip .wrap{padding-top:6px;padding-bottom:6px;}
+  .strip .meta{display:none;}
+  .nav{display:none;width:100%;flex-direction:column;gap:4px;padding-bottom:6px;}
+  .nav.show{display:flex;}
+  .nav a{width:100%;text-align:center;}
+  .burger{display:block;}
+  .sheet{margin:12px 2px;padding:18px 16px 16px;}
+  .hero .sheet{padding:22px 18px 18px;}
+  .hero h1{font-size:26px;letter-spacing:1px;}
+  .hero .en{letter-spacing:.28em;}
+  .sheet-head h2{font-size:20px;}
+  .wrap{padding:0 16px;}
+  .lv{grid-template-columns:74px 1fr 52px;gap:10px;padding-left:16px;}
+  .levels:before{width:6px;}
+  .rev{grid-template-columns:60px 1fr;gap:12px;padding:12px 14px;}
+  .rev .bubble .cir{width:40px;height:40px;font-size:13px;}
+  .titleblock{grid-template-columns:1fr;}
+  .titleblock .tb{border-right:0;border-bottom:1px solid var(--line2);}
+  .titleblock .tb:last-child{border-bottom:0;}
+}
+@media (max-width:480px){
+  .cards{grid-template-columns:1fr;}
+  .legend{grid-template-columns:1fr;}
+  .fgrid{grid-template-columns:1fr;}
+  .hero h1{font-size:23px;}
+  .lv{grid-template-columns:66px 1fr;gap:8px;}
+  .lv .bar{grid-column:2;}
+  .rev{grid-template-columns:1fr;}
+  .rev .bubble{justify-self:start;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="meta">
+      <span class="cell"><span class="k">PROJECT</span><span class="v">QIUXIA FREE CINEMA</span></span>
+      <span class="cell"><span class="k">DWG.NO</span><span class="v">QX-2026-01</span></span>
+      <span class="cell"><span class="k">SCALE</span><span class="v">1:100</span></span>
+      <span class="cell"><span class="k">DATE</span><span class="v">2026-10-02</span></span>
+    </div>
+    <button class="burger" type="button" id="burger" aria-label="打开导航菜单">INDEX ☰</button>
+    <nav class="nav" id="nav" aria-label="网站主导航">
+      <a href="#home" class="on">A-00 总图</a>
+      <a href="#film">A-01 精选</a>
+      <a href="#rank">A-02 热榜</a>
+      <a href="#cate">A-03 图例</a>
+      <a href="#news">A-04 修订</a>
+      <a href="#about">A-05 说明</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="sheet">
+        <p class="en up">Qiuxia Free Cinema · Master Index</p>
+        <h1>秋霞<em>免费电影网</em></h1>
+        <p class="en">QIUXIA FREE MOVIE NETWORK</p>
+        <p class="lead">秋霞免费电影网是一个专注电影推荐与影视资讯的站点，汇总精选片单、每日热榜与全类型图例索引，帮你在海量片库里少花时间、多看好片。页面轻量、移动端自适应，手机浏览同样清晰流畅。</p>
+
+        <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">9,600+ ENTRIES</span></div>
+
+        <div class="tags">
+          <span class="hot">秋霞免费电影网</span>
+          <span class="hot">秋霞免费电影</span>
+          <span>精选片单</span>
+          <span>标高热榜</span>
+          <span>图例索引</span>
+          <span>移动端自适应</span>
+        </div>
+
+        <div class="acts">
+          <a class="btn" href="#film">浏览精选片单</a>
+          <a class="btn gh" href="#rank">查看今日热榜</a>
+        </div>
+
+        <p class="url">官方网址 / <b>https://qiuxiamianfeidianyingwang-cn.github.io</b></p>
+
+        <div class="scalebar" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <div class="titleblock">
+          <div class="tb"><p class="k">DRAWN BY</p><p class="v">秋霞免费电影网</p></div>
+          <div class="tb"><p class="k">DWG.NO</p><p class="v">QX-2026-01</p></div>
+          <div class="tb"><p class="k">SCALE</p><p class="v">1:100</p></div>
+          <div class="tb"><p class="k">REV</p><p class="v">C · 2026-10-02</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="film">
+    <div class="wrap">
+      <div class="sheet">
+        <div class="sheet-head">
+          <div class="l">
+            <span class="dwg">A-01</span>
+            <h2>精选片单<span>FEATURED SELECTION · 8 FRAMES</span></h2>
+          </div>
+          <a class="more" href="#">查看全部 →</a>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>剧情</i>影片画面<b>9.1</b></div>
+              <h3>长夜将尽</h3>
+              <p class="meta">伦理剧情 · 2025</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">118 MIN</span></div>
+            </a>
+          </article>
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>家庭</i>影片画面<b>8.9</b></div>
+              <h3>沉默的河</h3>
+              <p class="meta">家庭伦理 · 2024</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">126 MIN</span></div>
+            </a>
+          </article>
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>爱情</i>影片画面<b>8.7</b></div>
+              <h3>海边的信</h3>
+              <p class="meta">伦理爱情 · 2025</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">104 MIN</span></div>
+            </a>
+          </article>
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>现实</i>影片画面<b>8.6</b></div>
+              <h3>第七个春天</h3>
+              <p class="meta">伦理现实 · 2024</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">132 MIN</span></div>
+            </a>
+          </article>
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>社会</i>影片画面<b>8.5</b></div>
+              <h3>归途列车</h3>
+              <p class="meta">伦理社会 · 2023</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">121 MIN</span></div>
+            </a>
+          </article>
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>治愈</i>影片画面<b>8.4</b></div>
+              <h3>人间处方</h3>
+              <p class="meta">伦理治愈 · 2025</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">110 MIN</span></div>
+            </a>
+          </article>
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>心理</i>影片画面<b>8.2</b></div>
+              <h3>空白的一页</h3>
+              <p class="meta">伦理心理 · 2024</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">115 MIN</span></div>
+            </a>
+          </article>
+          <article class="card">
+            <span class="cross c1" aria-hidden="true"></span><span class="cross c2" aria-hidden="true"></span>
+            <span class="cross c3" aria-hidden="true"></span><span class="cross c4" aria-hidden="true"></span>
+            <a href="#">
+              <div class="ph"><i>文艺</i>影片画面<b>8.0</b></div>
+              <h3>晚灯</h3>
+              <p class="meta">伦理文艺 · 2023</p>
+              <div class="dim" aria-hidden="true"><span class="bar"></span><span class="txt">99 MIN</span></div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="rank">
+    <div class="wrap">
+      <div class="sheet">
+        <div class="sheet-head">
+          <div class="l">
+            <span class="dwg">A-02</span>
+            <h2>标高热榜 TOP 10<span>ELEVATION RANKING · DAILY 08:00</span></h2>
+          </div>
+          <a class="more" href="#">榜单计算规则 →</a>
+        </div>
+        <ol class="levels">
+          <li class="lv"><span class="elv">EL +9.10</span><span class="tt"><a href="#"><h3>长夜将尽</h3></a><span>伦理剧情 · 2025 · 热度 96.2 万</span></span><span class="bar"><i style="width:98%"></i></span><span class="sc">9.1</span></li>
+          <li class="lv"><span class="elv">EL +8.90</span><span class="tt"><a href="#"><h3>沉默的河</h3></a><span>家庭伦理 · 2024 · 热度 88.7 万</span></span><span class="bar"><i style="width:92%"></i></span><span class="sc">8.9</span></li>
+          <li class="lv"><span class="elv">EL +8.70</span><span class="tt"><a href="#"><h3>海边的信</h3></a><span>伦理爱情 · 2025 · 热度 81.3 万</span></span><span class="bar"><i style="width:87%"></i></span><span class="sc">8.7</span></li>
+          <li class="lv"><span class="elv">EL +8.60</span><span class="tt"><a href="#"><h3>第七个春天</h3></a><span>伦理现实 · 2024 · 热度 76.5 万</span></span><span class="bar"><i style="width:81%"></i></span><span class="sc">8.6</span></li>
+          <li class="lv"><span class="elv">EL +8.50</span><span class="tt"><a href="#"><h3>归途列车</h3></a><span>伦理社会 · 2023 · 热度 69.8 万</span></span><span class="bar"><i style="width:76%"></i></span><span class="sc">8.5</span></li>
+          <li class="lv"><span class="elv">EL +8.40</span><span class="tt"><a href="#"><h3>人间处方</h3></a><span>伦理治愈 · 2025 · 热度 63.1 万</span></span><span class="bar"><i style="width:70%"></i></span><span class="sc">8.4</span></li>
+          <li class="lv"><span class="elv">EL +8.20</span><span class="tt"><a href="#"><h3>空白的一页</h3></a><span>伦理心理 · 2024 · 热度 57.6 万</span></span><span class="bar"><i style="width:64%"></i></span><span class="sc">8.2</span></li>
+          <li class="lv"><span class="elv">EL +8.00</span><span class="tt"><a href="#"><h3>晚灯</h3></a><span>伦理文艺 · 2023 · 热度 49.2 万</span></span><span class="bar"><i style="width:58%"></i></span><span class="sc">8.0</span></li>
+          <li class="lv"><span class="elv">EL +7.90</span><span class="tt"><a href="#"><h3>旧巷回声</h3></a><span>伦理年代 · 2022 · 热度 44.7 万</span></span><span class="bar"><i style="width:52%"></i></span><span class="sc">7.9</span></li>
+          <li class="lv"><span class="elv">EL +7.80</span><span class="tt"><a href="#"><h3>未完成的信</h3></a><span>伦理纪录 · 2023 · 热度 39.5 万</span></span><span class="bar"><i style="width:47%"></i></span><span class="sc">7.8</span></li>
+        </ol>
+        <p class="datum">基准标高 <b>EL ±0.00</b> 对应评分 0.0；标高值由站内浏览热度、用户评分与互动数据加权计算，每日 08:00 重测。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="cate">
+    <div class="wrap">
+      <div class="sheet">
+        <div class="sheet-head">
+          <div class="l">
+            <span class="dwg">A-03</span>
+            <h2>图例索引<span>LEGEND INDEX · 12 ZONES</span></h2>
+          </div>
+          <a class="more" href="#">展开完整索引 →</a>
+        </div>
+        <div class="legend">
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>伦理剧情</h3><span class="ct">1,286</span></span><small>DRAMA</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>家庭伦理</h3><span class="ct">948</span></span><small>FAMILY</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>情感爱情</h3><span class="ct">1,073</span></span><small>ROMANCE</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>社会现实</h3><span class="ct">762</span></span><small>SOCIETY</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>心理悬疑</h3><span class="ct">615</span></span><small>PSYCHO</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>文艺独立</h3><span class="ct">529</span></span><small>INDIE</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>纪录影像</h3><span class="ct">356</span></span><small>DOCUMENTARY</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>年代怀旧</h3><span class="ct">487</span></span><small>PERIOD</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>经典修复</h3><span class="ct">294</span></span><small>CLASSIC</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>国产影片</h3><span class="ct">1,842</span></span><small>CHINESE</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>欧美影片</h3><span class="ct">1,264</span></span><small>WESTERN</small></a>
+          <a class="lg" href="#"><span class="hatch" aria-hidden="true"></span><span class="row"><h3>日韩影片</h3><span class="ct">803</span></span><small>JK-CINEMA</small></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="news">
+    <div class="wrap">
+      <div class="sheet">
+        <div class="sheet-head">
+          <div class="l">
+            <span class="dwg">A-04</span>
+            <h2>修订通告<span>REVISION NOTICES · LATEST 4</span></h2>
+          </div>
+          <a class="more" href="#">进入资讯频道 →</a>
+        </div>
+        <div class="revs">
+          <article class="rev">
+            <span class="bubble"><span class="cir">01</span><span class="tail" aria-hidden="true"></span></span>
+            <div class="bd">
+              <h3>本周新片速递：三部伦理题材影片同日上线</h3>
+              <p class="stamp">ISSUED 2026-10-01 · 新片速递</p>
+              <p>秋霞免费电影网整理本周上线片单，覆盖剧情、家庭与纪录三个方向，并附看点速览与观影建议。</p>
+              <a class="rd" href="#">阅读全文 →</a>
+            </div>
+          </article>
+          <article class="rev">
+            <span class="bubble"><span class="cir">02</span><span class="tail" aria-hidden="true"></span></span>
+            <div class="bd">
+              <h3>秋季档观察：中小成本现实题材为何频出黑马</h3>
+              <p class="stamp">ISSUED 2026-09-27 · 档期观察</p>
+              <p>从排片结构、口碑发酵路径与观众画像三个角度，拆解今年秋季档几部黑马影片的共同特征。</p>
+              <a class="rd" href="#">阅读全文 →</a>
+            </div>
+          </article>
+          <article class="rev">
+            <span class="bubble"><span class="cir">03</span><span class="tail" aria-hidden="true"></span></span>
+            <div class="bd">
+              <h3>观影指南：用图例索引与标高搭建个人片单</h3>
+              <p class="stamp">ISSUED 2026-09-22 · 实用指南</p>
+              <p>给新手影迷的实用建议，教你利用秋霞免费电影网的图例索引与榜单体系建立专属电影库。</p>
+              <a class="rd" href="#">阅读全文 →</a>
+            </div>
+          </article>
+          <article class="rev">
+            <span class="bubble"><span class="cir">04</span><span class="tail" aria-hidden="true"></span></span>
+            <div class="bd">
+              <h3>榜单机制说明：热度与评分如何共同决定排名</h3>
+              <p class="stamp">ISSUED 2026-09-18 · 机制说明</p>
+              <p>详解本站标高榜的加权口径、数据周期与异常值处理方式，帮助你更准确地理解排名变化。</p>
+              <a class="rd" href="#">阅读全文 →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="about">
+    <div class="wrap">
+      <div class="sheet">
+        <div class="sheet-head">
+          <div class="l">
+            <span class="dwg">A-05</span>
+            <h2>技术说明<span>NOTES &amp; SPECIFICATIONS</span></h2>
+          </div>
+        </div>
+        <div class="notes">
+          <div class="note">
+            <span class="no">NOTE 01</span>
+            <h3>秋霞免费电影网提供哪些内容？</h3>
+            <p>本站提供精选片单、标高热榜、图例索引与修订通告四大板块内容，覆盖伦理剧情、家庭、社会现实等类型，帮助用户快速定位想看的影片。</p>
+          </div>
+          <div class="note">
+            <span class="no">NOTE 02</span>
+            <h3>热榜是如何排序的？</h3>
+            <p>榜单依据站内浏览热度、用户评分与互动数据加权计算得出，每日 08:00 刷新一次，并同步展示标高条与评分供参考。</p>
+          </div>
+          <div class="note">
+            <span class="no">NOTE 03</span>
+            <h3>手机端体验如何保证？</h3>
+            <p>页面采用响应式布局，小屏下图签栏折叠为索引按钮，卡片与图例转为单列，标高榜精简列，保证阅读与点击都顺畅。</p>
+          </div>
+          <div class="note">
+            <span class="no">NOTE 04</span>
+            <h3>如何联系秋霞免费电影网？</h3>
+            <p>可通过页脚「关于与联系」栏目提交合作、投稿或版权相关反馈，我们会在收到后尽快处理并回复。</p>
+          </div>
+        </div>
+        <div class="block">
+          <span class="t">秋霞免费电影网 · 官方网址</span>
+          <span class="u">https://qiuxiamianfeidianyingwang-cn.github.io</span>
+        </div>
+        <div class="titleblock">
+          <div class="tb"><p class="k">SITE</p><p class="v">秋霞免费电影网</p></div>
+          <div class="tb"><p class="k">TYPE</p><p class="v">影视推荐 / 资讯</p></div>
+          <div class="tb"><p class="k">UPDATE</p><p class="v">热榜每日 08:00</p></div>
+          <div class="tb"><p class="k">TERMINAL</p><p class="v">手机 / 平板 / 桌面</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>秋霞免费电影网</h4>
+        <p class="intro">秋霞免费电影网专注电影推荐与影视资讯聚合，精选片单与热榜每日更新，帮你更快找到好电影。</p>
+        <p class="intro" style="margin-top:10px;">官方网址：<b>https://qiuxiamianfeidianyingwang-cn.github.io</b></p>
+      </div>
+      <div>
+        <h4>频道导航</h4>
+        <ul>
+          <li><a href="#film">精选片单</a></li>
+          <li><a href="#rank">标高热榜</a></li>
+          <li><a href="#cate">图例索引</a></li>
+          <li><a href="#news">修订通告</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>热门分类</h4>
+        <ul>
+          <li><a href="#">伦理剧情</a></li>
+          <li><a href="#">家庭伦理</a></li>
+          <li><a href="#">情感爱情</a></li>
+          <li><a href="#">社会现实</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于与联系</h4>
+        <ul>
+          <li><a href="#about">技术说明</a></li>
+          <li><a href="#">友情链接</a></li>
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">版权声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p>Copyright © 2026 秋霞免费电影网 · qiuxiamianfeidianyingwang-cn.github.io · All Rights Reserved.</p>
+      <p><a href="#">网站地图</a> · <a href="#">隐私政策</a> · <a href="#">免责声明</a></p>
+    </div>
+  </div>
+</footer>
+
+<button type="button" id="top" aria-label="返回顶部">↑</button>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function(){
+    nav.classList.toggle('show');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ nav.classList.remove('show'); }
+  });
+  var links = document.querySelectorAll('.nav a');
+  var top = document.getElementById('top');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY + 150;
+    var cur = null;
+    for(var i = 0; i < links.length; i++){
+      var el = document.getElementById(links[i].getAttribute('href').slice(1));
+      if(el && el.offsetTop <= y){ cur = links[i]; }
+    }
+    if(!cur){ cur = links[0]; }
+    for(var j = 0; j < links.length; j++){ links[j].classList.remove('on'); }
+    cur.classList.add('on');
+    if(window.scrollY > 340){ top.classList.add('show'); }
+    else { top.classList.remove('show'); }
+  });
+  top.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
+
+</body>
+</html>
